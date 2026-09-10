@@ -1,0 +1,433 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * KUNDLI ANALYZER PRO — Premium bright astrology design system.
+ * Warm ivory backgrounds, rich purple/violet accents, tasteful gold highlights.
+ * All colours are oklch semantic tokens. Never hardcode colours in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-saffron: var(--saffron);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: "Cormorant Garamond", "Georgia", serif;
+  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+  --font-devanagari: "Tiro Devanagari Hindi", "Noto Sans Devanagari", serif;
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Bright ivory / off-white base */
+  --background: oklch(0.97 0.012 75);
+  --foreground: oklch(0.22 0.03 285);
+
+  /* Cards: warm cream */
+  --card: oklch(0.99 0.008 75);
+  --card-foreground: oklch(0.22 0.03 285);
+  --popover: oklch(0.99 0.008 75);
+  --popover-foreground: oklch(0.22 0.03 285);
+
+  /* Primary: rich royal purple */
+  --primary: oklch(0.45 0.18 285);
+  --primary-foreground: oklch(0.98 0.005 75);
+
+  /* Secondary: soft lavender */
+  --secondary: oklch(0.93 0.025 285);
+  --secondary-foreground: oklch(0.30 0.05 285);
+
+  /* Muted: warm beige */
+  --muted: oklch(0.95 0.015 75);
+  --muted-foreground: oklch(0.50 0.03 285);
+
+  /* Accent: deep violet */
+  --accent: oklch(0.52 0.20 295);
+  --accent-foreground: oklch(0.98 0.005 75);
+
+  /* Destructive: warm red */
+  --destructive: oklch(0.55 0.22 22);
+  --destructive-foreground: oklch(0.98 0.005 75);
+
+  /* Gold for astrology accents */
+  --gold: oklch(0.74 0.15 80);
+  --gold-foreground: oklch(0.20 0.03 60);
+
+  /* Saffron for malefic indicators */
+  --saffron: oklch(0.68 0.17 55);
+
+  /* Success for benefic indicators */
+  --success: oklch(0.60 0.14 155);
+
+  /* Warning */
+  --warning: oklch(0.72 0.16 70);
+
+  /* Borders: soft warm */
+  --border: oklch(0.90 0.015 75);
+  --input: oklch(0.88 0.015 75);
+  --ring: oklch(0.45 0.18 285);
+
+  /* Chart colors */
+  --chart-1: oklch(0.45 0.18 285);
+  --chart-2: oklch(0.74 0.15 80);
+  --chart-3: oklch(0.60 0.14 155);
+  --chart-4: oklch(0.68 0.17 55);
+  --chart-5: oklch(0.52 0.20 295);
+
+  /* Sidebar */
+  --sidebar: oklch(0.96 0.015 75);
+  --sidebar-foreground: oklch(0.25 0.03 285);
+  --sidebar-primary: oklch(0.45 0.18 285);
+  --sidebar-primary-foreground: oklch(0.98 0.005 75);
+  --sidebar-accent: oklch(0.93 0.025 285);
+  --sidebar-accent-foreground: oklch(0.30 0.05 285);
+  --sidebar-border: oklch(0.90 0.015 75);
+  --sidebar-ring: oklch(0.45 0.18 285);
+
+  /* Subtle cosmic gradient for body background */
+  --gradient-cosmic: radial-gradient(
+      ellipse at 15% 5%,
+      oklch(0.94 0.03 285 / 0.5),
+      transparent 50%
+    ),
+    radial-gradient(ellipse at 85% 15%, oklch(0.93 0.04 75 / 0.35), transparent 45%),
+    linear-gradient(170deg, oklch(0.97 0.012 75), oklch(0.96 0.015 80));
+
+  /* Gold gradient for headings */
+  --gradient-gold: linear-gradient(
+    100deg,
+    oklch(0.72 0.15 75),
+    oklch(0.62 0.17 55),
+    oklch(0.72 0.15 75)
+  );
+
+  /* Premium soft shadow */
+  --shadow-temple: 0 2px 8px -2px oklch(0.20 0.03 285 / 0.08), 0 8px 24px -8px oklch(0.20 0.03 285 / 0.06);
+  --shadow-glow: 0 0 0 1px oklch(0.74 0.15 80 / 0.25), 0 4px 16px -4px oklch(0.45 0.18 285 / 0.12);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    background-image: var(--gradient-cosmic);
+    background-attachment: fixed;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+  }
+}
+
+@utility text-gold-gradient {
+  background-image: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility panel {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-temple);
+}
+
+@utility gold-ring {
+  box-shadow: var(--shadow-glow);
+}
+
+@keyframes slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@utility animate-slow-spin {
+  animation: slow-spin 90s linear infinite;
+}
+
+/* Smooth transitions for interactive elements */
+@layer base {
+  button, a, [role="button"] {
+    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+}
+
+/* ===== Print / PDF styles ===== */
+@media print {
+  /* Hide everything on the page by default */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show only the print view and its children */
+  #print-view,
+  #print-view * {
+    visibility: visible;
+  }
+
+  /* Position print view at top of page */
+  #print-view {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: white !important;
+    color: black !important;
+    font-family: "Karla", Georgia, serif !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Hide on-screen UI chrome */
+  #print-view .hidden {
+    display: block !important;
+  }
+
+  /* Cover page */
+  .print-cover {
+    text-align: center;
+    padding: 60pt 20pt 40pt;
+    page-break-after: always;
+  }
+  .print-devanagari {
+    font-family: "Tiro Devanagari Hindi", serif;
+    font-size: 14pt;
+    color: #555;
+    margin-bottom: 20pt;
+  }
+  .print-title {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 32pt;
+    font-weight: 700;
+    color: #4a2d7a;
+    margin-bottom: 30pt;
+  }
+  .print-cover-info h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 20pt;
+    margin-bottom: 8pt;
+  }
+  .print-cover-info p {
+    font-size: 11pt;
+    color: #444;
+    margin-bottom: 4pt;
+  }
+
+  /* Section headings */
+  .print-h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 18pt;
+    font-weight: 700;
+    color: #4a2d7a;
+    border-bottom: 2px solid #c9a84c;
+    padding-bottom: 4pt;
+    margin-top: 24pt;
+    margin-bottom: 12pt;
+  }
+  .print-h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: #4a2d7a;
+    margin-top: 16pt;
+    margin-bottom: 6pt;
+  }
+  .print-hi {
+    font-family: "Tiro Devanagari Hindi", serif;
+    font-size: 12pt;
+    color: #666;
+  }
+  .print-hi-inline {
+    font-family: "Tiro Devanagari Hindi", serif;
+  }
+
+  /* Section break control */
+  .print-section {
+    page-break-inside: avoid;
+    margin-bottom: 16pt;
+  }
+
+  /* Tables */
+  .print-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+    margin-bottom: 8pt;
+  }
+  .print-table th {
+    text-align: left;
+    border-bottom: 1.5px solid #4a2d7a;
+    padding: 4pt 6pt;
+    font-weight: 600;
+    color: #4a2d7a;
+  }
+  .print-table td {
+    border-bottom: 0.5px solid #ddd;
+    padding: 3pt 6pt;
+    vertical-align: top;
+  }
+  .print-table-inner {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+  }
+  .print-table-inner td {
+    border-bottom: 0.5px solid #eee;
+    padding: 2pt 6pt;
+  }
+  .print-table-inner td:first-child {
+    font-weight: 600;
+    width: 30%;
+    color: #666;
+  }
+
+  /* Cards */
+  .print-planet-card,
+  .print-house-card,
+  .print-dasha-card,
+  .print-yoga-card,
+  .print-report-section {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10pt;
+    margin-bottom: 10pt;
+    page-break-inside: avoid;
+  }
+  .print-planet-card h3,
+  .print-house-card h3,
+  .print-dasha-card h3 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 13pt;
+    color: #4a2d7a;
+    margin-bottom: 6pt;
+  }
+  .print-house-card .print-grade {
+    font-weight: 600;
+    color: #c9a84c;
+    margin-bottom: 4pt;
+  }
+  .print-house-card .print-verdict {
+    font-style: italic;
+    margin-bottom: 6pt;
+  }
+  .print-subsection {
+    margin-top: 6pt;
+  }
+  .print-subsection h4 {
+    font-size: 11pt;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 3pt;
+  }
+  .print-subsection ul,
+  .print-yoga-card ul,
+  .print-report-section ul {
+    padding-left: 16pt;
+    margin-bottom: 6pt;
+  }
+  .print-subsection li,
+  .print-yoga-card li {
+    margin-bottom: 2pt;
+  }
+  .print-para {
+    margin-bottom: 6pt;
+    text-align: justify;
+  }
+  .print-note {
+    font-size: 9pt;
+    color: #777;
+  }
+  .print-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12pt;
+  }
+
+  /* SVG charts — ensure they print */
+  #print-view svg {
+    max-width: 300px;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Footer */
+  .print-footer {
+    margin-top: 24pt;
+    padding-top: 8pt;
+    border-top: 1px solid #ddd;
+    text-align: center;
+    font-size: 9pt;
+    color: #888;
+  }
+
+  /* Force backgrounds to print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Page margins */
+  @page {
+    margin: 1.5cm;
+    size: A4;
+  }
+}
